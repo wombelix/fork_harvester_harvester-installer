@@ -104,6 +104,13 @@ patch_rancher_logging_chart ${CHARTS_DIR} ${LOGGING_VERSION} ${PKG_PATCH_LOGGING
 # make chart sanity check again after patch
 tar zxvf ${CHARTS_DIR}/rancher-logging-${LOGGING_VERSION}.tgz >/dev/null --warning=no-timestamp
 
+# Prepare system-upgrade-controller chart
+source ${SCRIPTS_DIR}/version-system-upgrade-controller
+helm pull https://charts.rancher.io/assets/system-upgrade-controller/system-upgrade-controller-${SYSTEM_UPGRADE_CONTROLLER_VERSION}.tgz -d ${CHARTS_DIR}
+
+# make chart sanity check
+tar zxvf ${CHARTS_DIR}/system-upgrade-controller-${SYSTEM_UPGRADE_CONTROLLER_VERSION}.tgz >/dev/null  --warning=no-timestamp
+
 # skip addons for now for arm builds
 if [ ${ARCH} == "amd64" ]; then
   # Prepare vm-import-controller-chart
