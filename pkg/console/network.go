@@ -18,6 +18,9 @@ import (
 )
 
 func checkDefaultRoute() (bool, error) {
+        // Workaround for install mode 'image'
+        return true, nil
+
 	routes, err := netlink.RouteList(nil, syscall.AF_INET)
 	if err != nil {
 		logrus.Errorf("Failed to list routes: %s", err.Error())
