@@ -183,7 +183,7 @@ if [ "${BUILD_QCOW}" == "true" ]; then
   harvester.install.automatic=true harvester.install.powerOff=true harvester.os.password=rancher \
   harvester.scheme_version=1 harvester.install.persistentPartitionSize=150Gi harvester.install.skipchecks=true" \
   -initrd ${ARTIFACTS_DIR}/${PROJECT_PREFIX}-initrd-amd64 -boot once=d
-  tail -100 harvester-installer.log
+  cp harvester-installer.log ${ARTIFACTS_DIR}/${PROJECT_PREFIX}-amd64_harvester-installer.log
   echo "compressing raw image"
   zstd -T4 ${ARTIFACTS_DIR}/${PROJECT_PREFIX}-amd64.raw
 fi
