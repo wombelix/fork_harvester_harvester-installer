@@ -185,7 +185,7 @@ if [ "${BUILD_QCOW}" == "true" ]; then
   -initrd ${ARTIFACTS_DIR}/${PROJECT_PREFIX}-initrd-amd64 -boot once=d
   tail -100 harvester-installer.log
   echo "compressing raw image"
-  zstd -T4 --rm ${ARTIFACTS_DIR}/${PROJECT_PREFIX}-amd64.raw
+  zstd -T4 ${ARTIFACTS_DIR}/${PROJECT_PREFIX}-amd64.raw
 fi
 
 # Write checksum
